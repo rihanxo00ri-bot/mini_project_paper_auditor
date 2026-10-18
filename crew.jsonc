@@ -1,0 +1,55 @@
+{
+  // Display name for this crew
+  "name": "paper-auditor",
+
+  // Agents to include — each must have a matching agents/<name>.jsonc file
+  "agents": [
+    "research_paper_intelligence_an", 
+    "methodological_research_review", 
+    "citation_factchecking_researc", 
+    "chief_research_audit_editor"
+  ],
+
+  // Task definitions — executed in order for sequential process
+  "tasks": [
+    {
+      "name": "read_the_provided_research_task",
+      "agent": "research_paper_intelligence_an",
+      "description": "Read the research paper at {paper_path} using the Read Research Paper PDF tool and extract its core claims, paper metadata, citation references, methodology, datasets, baselines, experiments, evaluation metrics, quantitative results, limitations, and conclusions. Separate factual statements from unverified hypotheses and extract verbatim quotes as supporting evidence.",
+      "expected_output": "# 📄 Extracted Paper Evidence & Data Breakdown\n\n## 1. Paper Overview\n* **Title:** [Extract Title]\n* **Authors:** [Extract Authors]\n* **Affiliation & Year:** [Extract Affiliation/Year]\n* **Target Domain:** [Extract Target Domain]\n\n## 2. Quantitative Claims & Key Performance Metrics\n| Claim / Model | Metric | Value / Score | Baseline Comparison |\n| :--- | :--- | :---: | :--- |\n| Proposed Model | Accuracy | XX.X% | +X.X% vs Baseline |\n\n## 3. Dataset & Model Architecture\n* **Dataset Size:** [Sample size and domain]\n* **Input Features:** [List key features used]\n* **Architecture Specs:** [Model structure, layers, optimizer, learning rate]\n\n## 4. Unverified Hypotheses vs. Demonstrated Claims\n* **Demonstrated:** [Factual results supported by experimental data]\n* **Unverified Hypotheses:** [Author claims lacking ablation or statistical evidence]\n\n## 5. Supporting Verbatim Text Quotes\n> *\"[Extract verbatim quote supporting claim 1]\"* (Section X, Page Y)"
+    },
+    {
+      "name": "critically_audit_the_research_task",
+      "agent": "methodological_research_review",
+      "context": ["read_the_provided_research_task"],
+      "description": "Critically audit the research paper's methodology and experimental evidence extracted in Task 1. Evaluate train/test splits, data leakage risks, baseline choices, missing ablation studies, hyperparameter tuning, execution runs (e.g., single run vs. cross-validation), and statistical significance. Classify every identified flaw by severity (Critical, Major, Minor), explain its impact on validity, and provide concrete remediation recommendations.",
+      "expected_output": "# 🧪 Methodological Audit & Experimental Critique\n\n## 1. Experimental Design Overview\n* **Task Formulation:** [Classification / Regression target]\n* **Data Split & Preprocessing:** [Train/Test ratio, normalization approach]\n* **Execution Bounds:** [Single run vs multi-seed, cross-validation status]\n\n## 2. ⚠️ Critical Flaws & Methodological Risks\n### Flaw 1: [Short Descriptive Title]\n* **Finding:** [Detailed description of the issue]\n* **Severity:** 🔴 Critical / 🟡 Major / 🔵 Minor\n* **Impact on Results:** [Why this invalidates or inflates reported metrics]\n* **Recommendation:** [Concrete fix for the authors]\n\n## 3. Missing Baselines & Ablation Analysis\n* **Ablation Study Status:** [Present / Missing]\n* **Critique:** [Analysis of whether specific components actually drive improvement]"
+    },
+    {
+      "name": "verify_the_papers_important_task",
+      "agent": "citation_factchecking_researc",
+      "context": ["read_the_provided_research_task"],
+      "description": "Audit the paper's key citations and reference details extracted in Task 1. Inspect reference keys, author names, publication venues, and cited context. Identify placeholder names, suspicious sources, hallucinated references, or context misattributions. Classify each citation's verification status (Supported, Partially Supported, Unsupported, or Suspicious/Placeholder).",
+      "expected_output": "# 🔎 Citation & Source Verification Report\n\n## 1. Citation Audit Summary Table\n| Citation Key | Cited Reference Details | Context in Paper | Audit Status & Risk Analysis |\n| :--- | :--- | :--- | :--- |\n| **[1]** | [Author, Year, Title, Venue] | [Claim in text] | 🔴 High Risk (Placeholder Name) / 🟢 Verified |\n\n## 2. Audit Findings & Citation Discrepancies\n* **Verified Claims:** [Claims properly supported by literature]\n* **Red Flags & Hallucinated Sources:** [Detailed breakdown of unverified or suspicious citations]"
+    },
+    {
+      "name": "synthesize_the_research_paper_task",
+      "agent": "chief_research_audit_editor",
+      "context": [
+        "read_the_provided_research_task",
+        "critically_audit_the_research_task",
+        "verify_the_papers_important_task"
+      ],
+      "description": "Synthesize the findings from Tasks 1, 2, and 3 into an executive-level research paper audit report. Do not reproduce long verbatim passages. Create a top-level Executive Scorecard table with ratings (🔴 High Risk, 🟡 Caution, 🟢 Low Risk), highlight top critical red flags with 'Why It Matters' breakdowns, present the model baseline comparison table, and provide a final reviewer verdict (REJECT, REVISE, or ACCEPT) with actionable recommendations.",
+      "expected_output": "# 🔬 Academic Paper Executive Audit Report\n\n## 🚦 Executive Verdict & Scorecard\n\n| Audit Dimension | Rating | Status | Key Takeaway |\n| :--- | :---: | :---: | :--- |\n| **Overall Validity** | 🔴 High Risk | **Flawed** | [1-line executive takeaway] |\n| **Methodology** | 🟡 Caution | **Weak** | [1-line executive takeaway] |\n| **Claims vs. Evidence** | 🟡 Caution | **Overstated** | [1-line executive takeaway] |\n| **Citations & Sources** | 🔴 High Risk | **Suspicious** | [1-line executive takeaway] |\n\n---\n\n## 🚨 Critical Red Flags & Audit Findings\n\n### 1. ⚠️ [Primary Flaw, e.g., Data Leakage]\n* **What Happened:** [Concise explanation]\n* **Why It Matters:** [Impact on model accuracy / validity]\n\n### 2. 🧪 [Secondary Flaw, e.g., Missing Ablation]\n* **What Happened:** [Concise explanation]\n* **Why It Matters:** [Impact on causal claims]\n\n---\n\n## 📊 Quantitative Performance Comparison\n\n| Model | Accuracy (%) | F1 Score | Validity Status |\n| :--- | :---: | :---: | :--- |\n| **Proposed Model** | **XX.X%** | **0.XX** | 🔴 Inflated (Data Leakage) |\n| **Baseline 1** | XX.X% | 0.XX | 🟢 Valid |\n| **Baseline 2** | XX.X% | 0.XX | 🟢 Valid |\n\n---\n\n## 🎯 Final Recommendation for Reviewers\n\n> **Verdict:** **[REJECT / REQUIRES HEAVY REVISION / ACCEPT]**\n> \n> **Key Required Action:** [1-2 sentences summarizing the most critical fixes needed before publication.]"
+    }
+  ],
+
+  "process": "sequential",
+  "verbose": true,
+  "memory": false,
+
+  "inputs": {
+    "paper_path": ""
+  }
+}
