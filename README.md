@@ -1,6 +1,7 @@
 # how to RUN 
 if u use omniroute apikey so:
   1. type omniroute in first terminal 
+  2. in other terminal write streamlit run test_crew2.py
 
 # AI-Assisted Research Paper Auditing System
 
