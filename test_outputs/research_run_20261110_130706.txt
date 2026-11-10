@@ -1,0 +1,19 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "comprehension_mind",
+    "reason": "The user asks which methods and techniques (methodology, techniques) are employed in the paper, which aligns with the comprehension_mind focus on concepts, methodology, and how the approach works."
+}
+
+SELECTED AGENT: comprehension_mind
+REASON: The user asks which methods and techniques (methodology, techniques) are employed in the paper, which aligns with the comprehension_mind focus on concepts, methodology, and how the approach works.
+
+SPECIALIST ANSWER
+======================================================================
+**पेपर “Four‑Port MIMO Antenna using Concentric Square Ring Patches Loaded with CSRR” में प्रयुक्त विधियाँ (Methodology) और तकनीकें**
+
+---
+
+### 1. मुख्य उद्देश्य (Research Problem)
+- कोलोकेटेड (collocated) MIMO पैच तत्वों के बीच **अधिक म्यूचुअल कपलिंग** को कम करना और **‑22 dB तक की पृथकता (isolation)** प्राप्त करना।  
+- छोटे स्थान में **पोलराइज़ेशन एवं एंगल डाइवर्सिटी** प्रदान

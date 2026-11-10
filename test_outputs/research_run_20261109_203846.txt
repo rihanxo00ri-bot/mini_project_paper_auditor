@@ -1,0 +1,13 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "comprehension_mind",
+    "reason": "The user is asking 'What did the researcher discover?', which generally requires understanding the core findings, results, and conclusions presented in the paper, fitting the scope of the comprehension_mind."
+}
+
+SELECTED AGENT: comprehension_mind
+REASON: The user is asking 'What did the researcher discover?', which generally requires understanding the core findings, results, and conclusions presented in the paper, fitting the scope of the comprehension_mind.
+
+SPECIALIST ANSWER
+======================================================================
+The researcher discovered that a four‑port MIMO antenna built from concentric square‑ring patches and loaded with complementary split‑ring resonators (CSRR) on the ground plane achieves **very high isolation (‑22 dB) between its ports**, with **mutual coupling reduced by about 6.5 dB**, and **enables good MIMO diversity performance** (envelope correlation coefficients < 0.4) while operating at 2.45 GHz with a 2:1 VSWR bandwidth of 75 MHz【1†page 1】【3†page 3】【4†page 4】.

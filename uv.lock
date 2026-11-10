@@ -1026,6 +1026,19 @@ wheels = [
 ]
 
 [[package]]
+name = "gnani-vachana"
+version = "0.9.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+    { name = "websockets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/86/1e/2d63179b47512aedc68527bff68b0ea92cd8ffac973bf060d87fb6323f31/gnani_vachana-0.9.0.tar.gz", hash = "sha256:17e71544c9964393694fb925fde09f0ed24455fe6ead884558c880fcff64ff63", size = 51463, upload-time = "2026-10-27T13:53:09.186Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e0/7d/1b5e65d0c9315a848626f6eb824536a5fec3676d6389edebc391503f0c9f/gnani_vachana-0.9.0-py3-none-any.whl", hash = "sha256:21b290cfd5a7a8cb9772e74759b77c2d76da9ece1f9345979bd957e3c801cce0", size = 49680, upload-time = "2026-10-27T13:53:07.809Z" },
+]
+
+[[package]]
 name = "google-auth"
 version = "2.58.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2604,6 +2617,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "crewai", extra = ["google-genai", "tools"] },
+    { name = "gnani-vachana" },
     { name = "google-genai" },
     { name = "legacy-cgi" },
     { name = "litellm" },
@@ -2614,6 +2628,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "crewai", extras = ["google-genai", "tools"], specifier = ">=1.15.21,<2.0.0" },
+    { name = "gnani-vachana", specifier = ">=0.9.0" },
     { name = "google-genai", specifier = ">=1.65.0" },
     { name = "legacy-cgi", specifier = ">=2.6.4" },
     { name = "litellm", specifier = ">=1.102.0" },

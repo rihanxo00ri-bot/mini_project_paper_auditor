@@ -1,0 +1,15 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "critical_evaluation_mind",
+    "reason": "The question asks whether the paper includes evidence backing its claims, which involves assessing reliability, experimental evidence, datasets, baselines, metrics, reproducibility, and limitations—exactly the focus of the critical_evaluation_mind."
+}
+
+SELECTED AGENT: critical_evaluation_mind
+REASON: The question asks whether the paper includes evidence backing its claims, which involves assessing reliability, experimental evidence, datasets, baselines, metrics, reproducibility, and limitations—exactly the focus of the critical_evaluation_mind.
+
+SPECIALIST ANSWER
+======================================================================
+**उत्तर (हिन्दी में):**
+
+यह पत्र (Antennas and Wireless Propagation Letters, DOI 10.1109/LAWP.2015.2499322) में कई दावों का समर्थन करने

@@ -1,0 +1,57 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "comprehension_mind",
+    "reason": "The user is asking about the researcher's discoveries/findings, which requires understanding the key results and contributions presented in the paper. This falls under comprehension of the paper's core findings."
+}
+
+SELECTED AGENT: comprehension_mind
+REASON: The user is asking about the researcher's discoveries/findings, which requires understanding the key results and contributions presented in the paper. This falls under comprehension of the paper's core findings.
+
+SPECIALIST ANSWER
+======================================================================
+**What the researcher discovered**
+
+The authors presented a **compact four‑port MIMO antenna** built from **concentric square‑ring microstrip patches** that are excited in orthogonal transverse‑magnetic (TM) modes.  
+To combat the high mutual coupling that occurs when identically polarized elements are placed very close together, they **etched a pair of sub‑wavelength Complementary Split Ring Resonators (CSRRs) on the ground plane at the corners of the rings**. The CSRRs:
+
+* Reverse the polarity of the ground‑plane currents on adjacent rings (Fig. 5, p. 3–4).  
+* Create a π‑phase shift between vertically polarized space waves of neighboring ports, thereby cancelling the coupled fields.  
+* Reduce the coupling energy by **≈ 6.5 dB**, yielding an **isolation of at least –22 dB** between any two adjacent ports (p. 1, p. 3, p. 4).  
+
+Consequences of this isolation:
+
+* All four ports resonate at **2.45 GHz** with a **2:1 VSWR bandwidth of 75 MHz** (≈ 40 % wider than conventional square patches) (p. 1, p. 2).  
+* Slit‑loading on the rings further improves bandwidth and suppresses coupling (Fig. 4, p. 2).  
+* Measured efficiency is 84.6 % (inner ring) and 72.5 % (outer ring) in the 2.4 GHz ISM band (p. 4).  
+* Far‑field patterns show **orthogonal polarization planes** for ports P₁/P₂ and **different radiation shapes** for higher‑order ports P₃/P₄, giving both **polarization diversity** and **angle diversity** (p. 4).  
+* Envelope‑correlation coefficients between waveforms are **below 0.4** across the operating band, indicating strong MIMO diversity (Eq. (1); p. 5).  
+
+In short, the paper’s main contribution is a **simple, non‑periodic sub‑wavelength four‑port MIMO system** that achieves:
+* High isolation (≥ –22 dB) between co‑located elements,
+* Low inter‑element correlation (< 0.4),
+* Broadband operation (75 MHz @ 2.45 GHz),
+* Compact size (60 × 60 mm × 1.6 mm³) and easy fabrication (no extra metallic parts beyond the CSRRs).
+
+---
+
+### Evidence from the paper (page references)
+
+| Discovery | Where stated |
+|---|---|
+| Novel four‑port MIMO using concentric square ring patches, resonating at 2.4 GHz, with CSRRs for isolation | **Page 1** (Abstract) |
+| “enhanced isolation of –22 dB … CSRR reduces mutual coupling by about 6.5 dB” | **Page 1** |
+| Geometry/dimensions of rings and CSRRs, tilt angle 45°, locations at ring corners | **Page 2** (design details) / **Page 3** (geometry of 4‑port antenna, Fig. 2–3) |
+| CSRR causes polarity reversal of ground currents → vertical polarization out of phase → less coupling (Fig. 5a,b) | **Page 3** (Proposed isolation structure) |
+| Surface‑current simulation shows 6.5 dB improvement (Fig. 6) | **Page 3** (Fig. 6 description) |
+| Measured S‑parameters confirm 6.5 dB reduction; isolation ≥ –22 dB; peak gains 4 dBi (inner) & 3.4 dBi (outer); efficiencies 84.6 %/72.5 % | **Page 4** (Results and Discussion) |
+| Polarization planes of P₁ and P₂ are perpendicular; P₃ and P₄ differ → least coupling & angle diversity (Fig. 10) | **Page 4** |
+| Envelope‑correlation formula (Eq. (1)) and computed coefficients < 0.4 → good MIMO performance | **Page 5** (MIMO Performance Analysis) |
+| Conclusion restates high isolation (≥ –22 dB), simple sub‑wavelength CSRR design, resonant at 2.45 GHz, 75 MHz bandwidth | **Page 6** (Conclusion) |
+
+*(Exact page numbering in the PDF follows the printed pagination; the above corresponds to the visible page breaks in the extracted text.)*
+
+---
+
+### Bottom line
+The researcher **discovered a practical, compact four‑port MIMO antenna architecture** that leverages **complementary split‑ring resonators etched on the ground** to invert the ground‑current phases and suppress mutual coupling, thereby delivering **at least –22 dB isolation** between adjacent elements while preserving broadband (75 MHz) and low correlation (< 0.4) for effective MIMO diversity.

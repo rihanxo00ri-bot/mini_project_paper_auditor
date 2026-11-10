@@ -1,0 +1,32 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "comprehension_mind",
+    "reason": "The user asks which method is used in the paper, i.e., they want to know the specific technique or approach described, which falls under methodology and how the method works—topics addressed by the comprehension_mind."
+}
+
+SELECTED AGENT: comprehension_mind
+REASON: The user asks which method is used in the paper, i.e., they want to know the specific technique or approach described, which falls under methodology and how the method works—topics addressed by the comprehension_mind.
+
+SPECIALIST ANSWER
+======================================================================
+**Answer (Hindi):**  
+
+इस पेपर में अनुसंधानकर्ताओं ने **एक समग्र विधि‑संयोजन** अपनाई है, जिसमें निम्नलिखित चरण शामिल हैं:
+
+| # | विधि (Method) | प्रयुक्त होने वाली पृष्ठ संख्या (Page) | मुख्य विवरण / संदर्भ |
+|---|----------------|----------------------------------------|----------------------|
+| 1 | **पैरामीट्रिक अध्ययन (Parametric Study) – रिंग पैच चौड़ाई \(W_5\) को बदलकर S₁₁ का परीक्षण** | **पेज 2** (Fig. 1 “Parametric study of S11 with ring patch width”) | \(W_5\) को 6.6 mm तक बढ़ाने से बैंडविड्थ 50 MHz → 80 MHz हुई। |
+| 2 | **फुल‑वेव सिमुलेशन – CST Microwave Studio में ज्यामिति और प्रदर्शन** | **पेज 2** (Antenna Design section) | Concentric square ring patches, dimensions, feed positions, mode excitation (TM₁₀, TM₀₁, TM₂₁, TM₁₂)। |
+| 3 | **कम्प्लीमेंटॉरी स्प्लिट रिंग रेज़ोनेटर (CSRR) को ग्राउंड प्लेन पर एचेट करना** | **पेज 3‑4** (Proposed Isolation Structure) | दो CSRR corners पर tilt ≈ 45° रखकर identically polarized पोर्टों (P1/P4, P2/P3) के बीच 6.5 dB पृथक्करण। |
+| 4 | **प्रोटोटाइप निर्माण एवं मापन – R&S ZVB20 PNA VNA** | **पेज 4** (Fig. 9 “Fabricated prototype & measured S parameters”) | फिक्स्ड प्रोटोटाइप को मापा, सिमुलेशन से अच्छा मेल। |
+| 5 | **फार‑फील्ड रेडियेटिव पैटर्न मापन – Anechoic Chamber में** | **पेज 4** (Fig. 10) | प्रत्येक पोर्ट को उत्तेजित करके मापा गया normalized radiation pattern, polarization & angle diversity। |
+| 6 | **एन्वेलप कोरिलेशन गुणांक (Envelope Correlation Coefficient) की गणना – समीकरण (1)** | **पेज 5** (Section V “MIMO PERFORMANCE ANALYSIS”) | \(\rho_{ij}= \frac{\int[ X^{PR} E_\theta^i E_\theta^j^* + E_\phi^i E_\phi^j^* ] d\Omega}{ \int \{X^{PR} E_\theta^i E_\theta^i^* + E_\phi^i E_\phi^i^* \} d\Omega }\) … (समीकरण (1))। इसे गॉसियन/uniform वातावरण के लिए प्रयुक्त किया गया। |  
+| 7 | **बैंडविड्थ वृद्धि के लिए स्लिट लोडिंग (half‑wave slots)** | **पेज 2‑3** (Fig. 4 “Bandwidth enhancement with ring slits”) | प्रत्येक रिंग आर्म में half‑wavelength slots डालकर VSWR bandwidth को 60 % बढ़ाया। |
+
+### मुख्य निष्कर्ष
+- **प्रमुख मेथड:** **पैरामीट्रिक विश्लेषण + CST सिमुलेशन + प्रोटोटाइप मापन**।  
+- **दक्षता मूल्यांकन:** **एन्वेलप कोरिलेशन गुणांक (Eq. 1) से गणना** (पेज 5) तथा **फार‑फील्ड पैटर्न** से प्राप्त सहसंबंध (correlation)।  
+- **अनुकूलन उपकरण:** **CSRR (Complementary Split Ring Resonator) को ग्राउंड प्लेन पर एचेट** करना जिससे **mutual coupling 6.5 dB कम** हो (पेज 3‑4)।  
+
+इस प्रकार, पेपर में **CSRR‑आधारित पृथक्करण**, **पैरामीट्रिक/फुल‑वेव सिमुलेशन**, **प्रोटोटाइप प्रयोग**, और **एन्वेलप कोरिलेशन गुणांक विधि** का संयुक्त उपयोग किया गया है। यदि आप किसी विशेष विधि (जैसे parametric study या envelope correlation) के बारे में और विस्तार चाहते हैं, तो ऊपर दिए गए पृष्ठ संदर्भों को देखें।

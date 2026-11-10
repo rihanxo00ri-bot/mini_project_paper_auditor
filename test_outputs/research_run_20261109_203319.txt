@@ -1,0 +1,22 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "comprehension_mind",
+    "reason": "The user's question 'What did the researcher discover?' is asking about the core findings and discoveries presented in the research paper. This directly relates to understanding the concepts, methodology, and key results of the study, which falls under comprehension_mind's responsibility for interpreting what was found and how."
+}
+
+SELECTED AGENT: comprehension_mind
+REASON: The user's question 'What did the researcher discover?' is asking about the core findings and discoveries presented in the research paper. This directly relates to understanding the concepts, methodology, and key results of the study, which falls under comprehension_mind's responsibility for interpreting what was found and how.
+
+SPECIALIST ANSWER
+======================================================================
+**What the researcher discovered**
+
+The authors created a **compact four‑port MIMO antenna** made from **concentric square‑ring microstrip patches** that are simultaneously excited in *orthogonal higher‑order transverse‑magnetic (TM) modes*.  
+To suppress the strong mutual coupling between the closely spaced elements they etch **two complementary split‑ring resonators (CSRRs)** on the ground plane at the corners of the rings (tilted ≈ 45°). The CSRRs interact with the incident magnetic field, disturb the ground‑plane currents on neighboring rings by roughly **180°**, and therefore cause destructive interference of the coupled fields.  
+
+Key findings (all directly quoted from the paper):
+
+| Discovery | Evidence (page) |
+|---|---|
+| **Novel four‑port MIMO using concentric square rings** that resonate at 2.45 GHz (2.4 GHz ISM band) | § II – “The proposed design uses concentric ring

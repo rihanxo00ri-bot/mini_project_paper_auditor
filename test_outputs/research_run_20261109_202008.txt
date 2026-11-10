@@ -1,0 +1,33 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "comprehension_mind",
+    "reason": "The user is asking about what the researcher discovered, which is the core finding and conclusions of their work. This requires understanding the main results, discoveries, and key outcomes presented in the paper."
+}
+
+SELECTED AGENT: comprehension_mind
+REASON: The user is asking about what the researcher discovered, which is the core finding and conclusions of their work. This requires understanding the main results, discoveries, and key outcomes presented in the paper.
+
+SPECIALIST ANSWER
+======================================================================
+Based on my analysis of this research paper, here is what the researchers discovered:
+
+## What the Researchers Discovered
+
+The researchers discovered that **etching Complementary Split Ring Resonators (CSRRs) on the ground plane at specific coupling hotspots between concentric square ring patch antennas effectively reduces mutual coupling in a four-port MIMO antenna system by approximately 6.5 dB**. This finding is supported by multiple lines of evidence from the paper:
+
+### Key Experimental Findings:
+
+1. **Isolation Enhancement**: The CSRR structure achieves isolation of **-22 dB between patch antenna elements**, representing a 6.5 dB improvement over designs without CSRR (Page 3, lines 2-4).
+
+2. **Mechanism of Action**: The CSRR etched on the ground plane **reverses the polarity of coupling currents on the shared ground by nearly 180°**, which ensures minimum coupling between ports with the same polarization direction (Page 3, lines 9-15; Page 5, lines 12-18).
+
+3. **Physical Evidence**: Surface current distribution analysis shows "coupling currents are diminished significantly" when CSRR is loaded on the ground plane (Page 3, lines 18-21).
+
+4. **Frequency Stability**: The CSRR-loaded design maintains resonance at 2.45 GHz with minimal frequency shift (Page 3, line 22).
+
+5. **MIMO Performance Validation**: Correlation coefficients computed from the antenna's far-field radiation patterns remain **below 0.4 across the operating band**, ensuring good MIMO diversity performance (Page 4, lines 16-21).
+
+### Technical Achievement:
+
+The researchers successfully designed and fabricated a **four-port MIMO system with overall dimensions of 60 x 60 x 1.6 mm³** operating in the 2.4 GHz ISM band, with all four ports resonating at 2.45 GHz and achieving the specified isolation improvements (Abstract; Page 1, lines 1-4; Page 2, lines 10-12).

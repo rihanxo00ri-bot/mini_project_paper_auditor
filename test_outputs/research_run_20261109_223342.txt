@@ -1,0 +1,116 @@
+QUERY ROUTING
+======================================================================
+{
+            "selected_agent": "comprehension_mind",
+            "reason": "The normalized question asks for explanation of the method used in the research, which involves methodology, architecture and how something works, matching comprehension_mind's scope."
+        }
+
+SELECTED AGENT: comprehension_mind
+REASON: The normalized question asks for explanation of the method used in the research, which involves methodology, architecture and how something works, matching comprehension_mind's scope.
+
+SPECIALIST ANSWER
+======================================================================
+**Method used in the paper – “Attention Is All You Need” (the Transformer)**  
+
+The authors present **Transformer**, a sequence‑to‑sequence model that replaces the usual recurrent or convolutional backbones with **pure attention mechanisms**.  The method can be broken down into the following components, each described verbatim or closely quoted from the paper together with its page number.
+
+---
+
+### 1. Overall idea  
+> “In this work we propose the Transformer, a model architecture **eschewing recurrence and instead relying entirely on an attention mechanism** to draw global dependencies between input and output.” – Section 2, **page 2**.
+
+The motivation is that recurrent networks are inherently sequential (page 2) and convolutional layers require many operations whose cost grows with distance between positions (Table 1, page 6).  By using only attention, the model becomes much more parallelizable and trains faster.
+
+---
+
+### 2. Core architecture (encoder & decoder stacks)
+
+| Element | Description | Evidence |
+|---|---|---|
+| **Stack size** | Both encoder and decoder consist of **\(N = 6\) identical layers** (page 3). |
+| **Sub‑layers per stack layer** | First sub‑layer = **multi‑head self‑attention**; second sub‑layer = **position‑wise fully‑connected feed‑forward network** (page 3). |
+| **Residuals & normalization** | Each sub‑layer is wrapped in a residual connection and followed by **LayerNorm**: `LayerNorm(x + Sublayer(x))` (page 3). |
+| **Dimension** | All vectors have dimension **`d_model = 512`** (page 3). |
+| **Embedding scaling** | Input token embeddings are multiplied by `√d_model` before feeding into the network (page 3.4). |
+
+---
+
+### 3. Multi‑head self‑attention  
+
+#### 3.1 Scaled dot‑product attention (single head)  
+Equation (1):  
+
+\[
+\text{Attention}(Q,K,V)=\text{softmax}\!\left(\frac{QK^{\top}}{\sqrt{d_k}}\right)V
+\]  
+
+> “We call our particular attention ‘Scaled Dot‑Product Attention’ … compute the dot products of the query with all keys, divide each by \(\sqrt{d_k}\), and apply a softmax function to obtain the weights on the values.” – page 4.
+
+#### 3.2 Multi‑head attention (parallel heads)  
+*Projections*: each of \(Q, K, V\) is linearly projected \(h\) times onto lower‑dimensional spaces (`\(d_k = d_{model}/h\)`).  
+*Parallel computation*: for each head \(i\), run the single‑head attention, concatenate heads, then project back.  
+Formula (page 5):
+
+\[
+\text{MultiHead}(Q,K,V)=\bigl[\text{Concat}(\text{head}_1,\dots,\text{head}_h)\bigr]W_O,
+\qquad
+\text{head}_i = \text{Attention}(QW_i,\,KW_i,\,VW_i)
+\]
+
+*Parameters*: they **employ \(h = 8\) parallel attention heads**, with `\(d_k = d_v = d_{\text{model}}/h = 64\)`. – page 5.
+
+---
+
+### 4. Feed‑forward sub‑layer (position‑wise)  
+
+\[
+\text{FFN}(x)=\max(0, xW_1+b_1)W_2+b_2
+\]  
+
+> “Each of the layers in our encoder and decoder contains a fully connected feed‑forward network, which is applied to each position separately and identically… inner‑layer has dimensionality \(d_{ff}=2048\).” – page 3.3.
+
+---
+
+### 5. Positional information  
+
+Because there is no recurrence nor convolution, the authors inject order via **positional encodings**:
+
+\[
+\begin{aligned}
+\text{PE}_{pos}(2i) &= \sin\!\left(\frac{pos}{10000^{2i}\,d_{\text{model}}}\right),\\
+\text{PE}_{pos}(2i+1) &= \cos\!\left(\frac{pos}{10000^{2i}\,d_{\text{model}}}\right),
+\end{aligned}
+\]
+
+where the frequencies follow a geometric progression from \(2\pi\) up to \(10\,000\cdot2\pi\). – page 6.
+
+They note that learned positional embeddings give nearly identical results and chose the sinusoidal version because it may extrapolate to longer sequences (page 6).
+
+---
+
+### 6. Decoder’s causal masking  
+
+To preserve auto‑regressive generation, the decoder’s self‑attention masks out illegal connections (“set to −∞”) so that position \(i\) can depend only on previous positions (< i). This is implemented inside the scaled dot‑product attention (page 3.3).
+
+---
+
+### 7. Training regime  
+
+*Data* – WMT 2014 English‑German (≈4.5 M sentence pairs) and English‑French (≈36 M tokens) encoded with **byte‑pair encoding** (page 5.1).  
+*Batches* – grouped by approximate sequence length, ≈25 k source/target tokens per batch (page 5.1).  
+*Hardware* – 8 × NVIDIA **P100 GPUs**; base models: 100 k steps ≈ 12 h; big models: 300 k steps ≈ 3.5 days (page 5.2).  
+*Optimizer* – **Adam** with \(\beta_1=0.9,\;\beta_2=0.98,\;\epsilon=10^{-9}\); learning‑rate schedule `lr = d^{-0.5}·model·min(step_num−0.5, step_num·warmup_steps−1.5)` and **warmup_steps = 4000** (page 5.3).  
+*Label smoothing* – value \(\varepsilon_{\text{ls}}=0.1\) (page 8).  
+*Regularization* – residual dropout (rate \(P_{\text{drop}}=0.1\)) applied to sub‑layer outputs, embeddings, and positional encodings (page 5.4).  
+
+These choices together make training **significantly faster** and allow reaching SOTA BLEU scores with far less FLOPs (see Table 2, page 8).
+
+---
+
+### 8. High‑level data flow  
+
+1. **Token → embedding** (scaled by \(\sqrt{d_{\text{model}}}\)).  
+2. **Add sinusoidal positional encoding** to each token vector.  
+3. **Pass through each transformer layer** (self‑attention + FFN).  
+4. **Decoder** additionally attends over encoder output (encoder‑decoder attention) and applies causal masking.  
+5

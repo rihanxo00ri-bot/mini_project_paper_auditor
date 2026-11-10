@@ -1,0 +1,33 @@
+QUERY ROUTING
+======================================================================
+{
+    "selected_agent": "comprehension_mind",
+    "reason": "The user question asks 'What did the researcher discover?' This directly seeks information about the core findings and discoveries made in the paper, which aligns with the comprehension_mind's responsibility to identify concepts, methodology, and key findings of how something works."
+}
+
+SELECTED AGENT: comprehension_mind
+REASON: The user question asks 'What did the researcher discover?' This directly seeks information about the core findings and discoveries made in the paper, which aligns with the comprehension_mind's responsibility to identify concepts, methodology, and key findings of how something works.
+
+SPECIALIST ANSWER
+======================================================================
+**Researcher’s discovery (with direct evidence from the paper)**  
+
+The investigators discovered that **embedding complementary split‑ring resonators (CSRRs) on the ground plane of a four‑port concentric‑square‑ring MIMO antenna provides high isolation and markedly improves MIMO diversity performance**. The key quantitative findings are:
+
+| Discovery | Evidence (page reference) |
+|-----------|----------------------------|
+| **Isolation of –22 dB between individual elements** | Abstract, page 1: “…enhanced isolation of –22 dB between patch antenna elements.” |
+| **Mutual‑coupling reduction of ≈ 6.5 dB** | Page 2 (Results section): “…CSRR reduces mutual coupling by about 6.5 dB.” Also confirmed on page 3: “ground coupling currents are diminished significantly resulting in an isolation enhancement of 6.5 dB.” |
+| **Mechanism – polarity reversal of coupling currents** | Page 3 (Proposed isolation structure): “The presence of CSRR on ground … disturbs the induced currents … resulting in the ground currents on the adjacent ring changes its polarity by nearly 1800 … ensures least coupling between them.” |
+| **Operating bandwidth** | Abstract, page 1: “The antenna operates with a 2:1 VSWR bandwidth of 75 MHz centered at 2.45 GHz.” |
+| **Low envelope correlation (good diversity)** | Page 4 (MIMO performance analysis): “Within the operating band correlation coefficients are below 0.4 which ensures good MIMO performance.” |
+| **Measured performance (gain, efficiency)** | Page 4: “Measured peak gain values of inner ring modes and outer ring modes are 4 dBi and 3.4 dBi respectively. Peak efficiency obtained for inner ring ports are 84.6 % and outer ring ports about 72.5 % in the 2.4 GHz ISM band.” |
+| **Prototype validation – good agreement** | Page 4: “The fabricated prototype and measured S‑parameters in R&S ZVB20 PNA … show reasonable agreement between simulated and measured results.” |
+
+**What this means**  
+
+- The **CSRR loaded ground plane** successfully **cancels out coupling currents** between the identically polarized concentric rings, delivering **≥ 22 dB isolation** and a **6.5 dB reduction in mutual coupling**.  
+- The **polarity reversal** of the shared‑ground currents (≈ 180° phase shift) is the underlying physical reason for the improved isolation.  
+- The **compact 60 × 60 × 1.6 mm³ system** still meets **MIMO requirements**: a **75 MHz bandwidth** around 2.45 GHz, **low envelope correlation (< 0.4)**, **high gain (~4 dBi)** and **good radiation efficiency (~85 % for inner ports)**.  
+
+Thus, the researchers **discovered that a non‑periodic sub‑wavelength CSRR etched on the ground plane can be used as an effective isolation technique for collocated MIMO antennas, delivering the high isolation, low coupling, and good diversity performance required for modern compact wireless devices**. All statements above are directly quoted or paraphrased from the text of the paper (pages 1‑4).
