@@ -66,7 +66,7 @@ flowchart TD
 
 ## 🛠️ Technology Stack
 
-**Python** · **CrewAI** · **Groq** · **Gnani Prisma STT** · **PDFSearchTool** · **Gemini Embeddings** · **ChromaDB** · **Streamlit**
+**Python** · **CrewAI** · **Groq** · **Gnani Prisma STT** · **PDFSearchTool** ·  · **ChromaDB** · **Streamlit**
 
 ## ⭐ Core Innovation
 
